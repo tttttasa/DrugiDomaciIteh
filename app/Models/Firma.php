@@ -10,6 +10,14 @@ class Firma extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'naziv',
+        'adresa',
+        'grad',
+        'drzava'
+    ];
+
+
     public function direktori()
     {
         return $this->hasMany(Direktor::class);

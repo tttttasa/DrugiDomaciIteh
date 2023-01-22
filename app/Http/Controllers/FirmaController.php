@@ -6,6 +6,7 @@ use App\Http\Resources\FirmaResource;
 use App\Models\Firma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\FirmaCollection;
 
 class FirmaController extends Controller
 {
@@ -16,7 +17,8 @@ class FirmaController extends Controller
      */
     public function index()
     {
-        return FirmaResource::collection(Firma::all());
+        $firme =Firma::all();
+        return new FirmaCollection($firme);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\DirektorResource;
 use App\Models\Direktor;
 use Illuminate\Http\Request;
+use App\Http\Resources\DirektorCollection;
 
 class DirektorController extends Controller
 {
@@ -15,7 +16,8 @@ class DirektorController extends Controller
      */
     public function index()
     {
-        return DirektorResource::collection(Direktor::all());
+        $direktori =Direktor::all();
+        return new DirektorCollection($direktori);
     }
 
     /**
